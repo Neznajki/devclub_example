@@ -15,7 +15,6 @@ import java.util.List;
 
 @Service
 public class MonolithService {
-
     public String getHomePage() throws IOException {
         return Files.readString(Path.of(new ClassPathResource("templates/index.html").getURI()));
     }
