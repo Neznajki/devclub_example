@@ -30,10 +30,10 @@ public class MonolithService {
             if (listItem.getName().equals("password")) {
                 value = Base64.getEncoder().withoutPadding().encodeToString(listItem.getName().getBytes());
             }
-            response += String.format("\n   \"%s\":\"%s\"", name, value);
+            response += String.format("\n   \"%s\":\"%s\",", name, value);
         }
 
-        response += "\n}";
+        response = response.replaceAll(",$", "\n}");
 
         return response;
     }

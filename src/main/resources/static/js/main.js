@@ -9,7 +9,7 @@ $(function () {
             data: JSON.stringify(data),
             dataType: 'json',
             success: function(response){
-                console.info(response);
+                $("#responseContent").text(JSON.stringify(response, null, 2));
             },
             processData: false,
             type: 'POST',
