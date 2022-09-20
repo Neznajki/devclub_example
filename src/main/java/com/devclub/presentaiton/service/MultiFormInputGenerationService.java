@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("Convert2MethodRef")
 @Service
 public class MultiFormInputGenerationService extends AbstractGenerationService implements ContentGenerationInterface {
     private final MultiFormCollection multiFormCollection = new MultiFormCollection();
@@ -29,7 +30,7 @@ public class MultiFormInputGenerationService extends AbstractGenerationService i
         return this.multiFormCollection.getSelectedFieldCollection(formId)
                 .getFieldList()
                 .stream()
-                .map(ContentReplaceCollectionContainerInterface::getContentReplaceCollection)
+                .map(input -> input.getContentReplaceCollection())
                 .collect(Collectors.toList());
     }
 }

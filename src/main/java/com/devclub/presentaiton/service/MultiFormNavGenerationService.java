@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("Convert2MethodRef")
 @Service
 public class MultiFormNavGenerationService extends AbstractGenerationService {
     private final MultiFormCollection multiFormCollection = new MultiFormCollection();
@@ -28,7 +29,7 @@ public class MultiFormNavGenerationService extends AbstractGenerationService {
         return multiFormCollection
                 .getSupportedFieldCollection()
                 .stream()
-                .map(ContentReplaceCollectionContainerInterface::getContentReplaceCollection)
+                .map(nav -> nav.getContentReplaceCollection())
                 .collect(Collectors.toList());
     }
 }

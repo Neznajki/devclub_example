@@ -8,11 +8,12 @@ abstract public class AbstractGenerationService implements ContentGenerationInte
     @Override
     public String adjustContent(String content, String formId) {
         for (ContentReplaceCollectionInterface replacer : this.getCollectionItems(formId)) {
-            String itemHtml = LogicHelper.useReplacer(this.getHtmlContent(), replacer);
-            content = content.replace(getReplacingIndex(), itemHtml);
+            String itemHtml = LogicHelper.useReplacer(this.getHtmlContent(), replacer)
+                    + this.getReplacingIndex();//append for next item replacement
+            content = content.replace(this.getReplacingIndex(), itemHtml);
         }
 
-        content = content.replace(this.getReplacingIndex(), "");
+        content = content.replace(this.getReplacingIndex(), "");//cleanup after all item generation done
 
         return content;
     }

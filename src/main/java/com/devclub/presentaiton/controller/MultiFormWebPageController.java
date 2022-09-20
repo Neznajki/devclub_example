@@ -1,7 +1,6 @@
 package com.devclub.presentaiton.controller;
 
 import com.devclub.presentaiton.service.MultiFormRenderingService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +11,7 @@ public class MultiFormWebPageController {
 
     @GetMapping("/v2")
     public String index() {
-        return multiFormRenderingService.getContent(null);
+        return multiFormRenderingService.getContent("loginForm");
     }
 
     @GetMapping("/v2/{id}")
