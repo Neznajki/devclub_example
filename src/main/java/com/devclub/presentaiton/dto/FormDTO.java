@@ -1,8 +1,13 @@
 package com.devclub.presentaiton.dto;
 
 public class FormDTO {
-    private String name;
-    private String value;
+    private final String name;
+    private final String value;
+
+    public FormDTO(String name, String value) {
+        this.name = name;
+        this.value = value;
+    }
 
     public String getName() {
         return name;

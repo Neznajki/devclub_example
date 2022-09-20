@@ -1,7 +1,6 @@
 package com.devclub.presentaiton.collection;
 
 import com.devclub.presentaiton.contract.ContentReplaceCollectionInterface;
-import com.devclub.presentaiton.contract.SingleFieldInterface;
 import com.devclub.presentaiton.contract.SingleNavInterface;
 import com.devclub.presentaiton.valueobject.ContentReplacerItem;
 

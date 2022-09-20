@@ -3,6 +3,7 @@ $(function () {
 
     $("#submit").on("click", function() {
         var data = $form.serializeArray();
+        var url = $form.attr("action");
 
         $.ajax({
             contentType: 'application/json',
@@ -13,7 +14,7 @@ $(function () {
             },
             processData: false,
             type: 'POST',
-            url: '/v1'
+            url: url
         });
     })
 });

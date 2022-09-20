@@ -9,7 +9,7 @@ public class MultiNavCollection {
     private final List<SingleNavInterface> supportedFieldCollection = new ArrayList<>();
 
     public MultiNavCollection() {
-        this.supportedFieldCollection.add(new LoginFormFieldCollection());
+        this.supportedFieldCollection.add(new LoginWebForm());
     }
 
     public List<SingleNavInterface> getNavItemCollection(String formId) {
