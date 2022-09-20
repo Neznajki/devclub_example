@@ -1,20 +1,24 @@
-package com.devclub.presentaiton.collection;
+package com.devclub.presentaiton.form;
 
+import com.devclub.presentaiton.collection.NavContentReplaceCollection;
 import com.devclub.presentaiton.contract.ContentReplaceCollectionInterface;
-import com.devclub.presentaiton.contract.WebFormInterface;
 import com.devclub.presentaiton.contract.SingleInputInterface;
-import com.devclub.presentaiton.input.EmailInput;
-import com.devclub.presentaiton.input.PasswordInput;
+import com.devclub.presentaiton.contract.WebFormInterface;
+import com.devclub.presentaiton.input.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginWebForm implements WebFormInterface {
+public class RegisterWebForm  implements WebFormInterface {
+    public static final String FORM_ID = "registerForm";
     private final List<SingleInputInterface> list = new ArrayList<>();
 
-    public LoginWebForm() {
+    public RegisterWebForm() {
+        list.add(new FirstNameInput());
+        list.add(new LastNameInput());
         list.add(new EmailInput());
         list.add(new PasswordInput());
+        list.add(new PasswordRepeatInput());
     }
 
     @Override
@@ -24,17 +28,17 @@ public class LoginWebForm implements WebFormInterface {
 
     @Override
     public String getId() {
-        return "loginForm";
+        return FORM_ID;
     }
 
     @Override
     public String getLabel() {
-        return "Login Form";
+        return "Register Form";
     }
 
     @Override
     public String getLink() {
-        return "login";
+        return this.getId();
     }
 
     @Override

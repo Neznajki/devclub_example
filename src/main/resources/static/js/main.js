@@ -16,5 +16,27 @@ $(function () {
             type: 'POST',
             url: url
         });
-    })
+    });
 });
+
+$(function () {
+    markNavigation();
+});
+
+function getCurrentUrl() {
+    return $(location).attr('pathname');
+}
+
+function updateButtonClass($linkButton) {
+    if (getCurrentUrl() === $linkButton.attr('href')) {
+        $linkButton.addClass('btn-dark');
+        return;
+    }
+    $linkButton.addClass('btn-light');
+}
+
+function markNavigation() {
+    $(".navigation").each(function () {
+        updateButtonClass($(this));
+    });
+}

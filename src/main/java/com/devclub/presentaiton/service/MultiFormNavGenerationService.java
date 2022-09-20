@@ -1,7 +1,6 @@
 package com.devclub.presentaiton.service;
 
 import com.devclub.presentaiton.collection.MultiFormCollection;
-import com.devclub.presentaiton.contract.ContentReplaceCollectionContainerInterface;
 import com.devclub.presentaiton.contract.ContentReplaceCollectionInterface;
 import com.devclub.presentaiton.helper.FileHelper;
 import org.springframework.stereotype.Service;
@@ -27,7 +26,7 @@ public class MultiFormNavGenerationService extends AbstractGenerationService {
     @Override
     public List<ContentReplaceCollectionInterface> getCollectionItems(String formId) {
         return multiFormCollection
-                .getSupportedFieldCollection()
+                .getSupportedFormCollection()
                 .stream()
                 .map(nav -> nav.getContentReplaceCollection())
                 .collect(Collectors.toList());
