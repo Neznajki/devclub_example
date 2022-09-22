@@ -17,14 +17,28 @@ public class MultiFormDTOHandlingService {
 
         String targetFieldName = singleInputHandler.getTargetFieldName();
         if (! existingItems.containsKey(targetFieldName)) {
-            String preparedValue = singleInputHandler.prepareValue("", formInputDTO.getValue());
-            existingItems.put(targetFieldName, new ResponseItem(targetFieldName, preparedValue));
+            existingItems.put(
+                targetFieldName,
+                prepareAndCreateResponseItem(formInputDTO, singleInputHandler, targetFieldName, "")
+            );
             return;
         }
 
         ResponseItem responseItem = existingItems.get(targetFieldName);
         existingItems.remove(targetFieldName);
-        String preparedValue = singleInputHandler.prepareValue(responseItem.getValue(), formInputDTO.getValue());
-        existingItems.put(targetFieldName, new ResponseItem(targetFieldName, preparedValue));
+        existingItems.put(
+            targetFieldName,
+            prepareAndCreateResponseItem(formInputDTO, singleInputHandler, targetFieldName, responseItem.getValue())
+        );
+    }
+
+    private ResponseItem prepareAndCreateResponseItem(
+        FormDTO formInputDTO,
+        SingleInputHandlerInterface singleInputHandler,
+        String targetFieldName,
+        String existingValue
+    ) {
+        String preparedValue = singleInputHandler.prepareValue(existingValue, formInputDTO.getValue());
+        return new ResponseItem(targetFieldName, preparedValue);
     }
 }

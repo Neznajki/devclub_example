@@ -1,10 +1,7 @@
 package com.devclub.presentaiton.service;
 
 import com.devclub.presentaiton.collection.MultiFormCollection;
-import com.devclub.presentaiton.contract.ContainsInputInterface;
-import com.devclub.presentaiton.contract.SerializerInterface;
-import com.devclub.presentaiton.contract.SingleInputInterface;
-import com.devclub.presentaiton.contract.WebFormInterface;
+import com.devclub.presentaiton.contract.*;
 import com.devclub.presentaiton.dto.FormDTO;
 import com.devclub.presentaiton.serializer.JsonSerializer;
 import com.devclub.presentaiton.valueobject.ResponseItem;
@@ -49,7 +46,7 @@ public class MultiFormRequestHandlingService implements ContainsInputInterface {
     }
 
     @Override
-    public boolean containsInputInForm(WebFormInterface webForm, FormDTO formDTO) {
+    public boolean containsInputInForm(WebFormListInterface webForm, FormDTO formDTO) {
         for (SingleInputInterface formInput: webForm.getFieldList()) {
             if (formInput.getName().equals(formDTO.getName())) {
                 return true;

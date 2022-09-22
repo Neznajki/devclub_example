@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
+@SuppressWarnings("StringConcatenationInLoop")
 public class JsonSerializer implements SerializerInterface {
     private final ObjectMapper objectMapper = new ObjectMapper();
 

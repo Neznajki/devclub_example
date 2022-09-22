@@ -1,8 +1,6 @@
 package com.devclub.presentaiton.contract;
 
-import java.util.List;
 
-public interface WebFormInterface extends SingleNavInterface {
-    List<SingleInputInterface> getFieldList();
+public interface WebFormInterface extends SingleNavInterface, WebFormListInterface {
     String getId();
 }
